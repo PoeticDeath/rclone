@@ -1267,7 +1267,7 @@ func (f *Fs) put(
 	}
 
 	// If previous object was chunked, remove its chunks
-	f.removeOldChunks(ctx, baseRemote)
+	// f.removeOldChunks(ctx, baseRemote)
 
 	if !f.useNoRename {
 		// The transaction suffix will be removed for backends with quick rename operations
