@@ -656,12 +656,12 @@ func (f *Fs) newXactID(ctx context.Context, filePath string) (xactID string, err
 	if unixSec < 0 {
 		unixSec = -unixSec // unlikely but the number must be positive
 	}
-	circleSec := unixSec % closestPrimeZzzzSeconds
+	// circleSec := unixSec % closestPrimeZzzzSeconds
 	first4chars := "1234" // strconv.FormatInt(circleSec, 36)
 
 	for tries := 0; tries < maxTransactionProbes; tries++ {
 		f.xactIDMutex.Lock()
-		randomness := f.xactIDRand.Int63n(maxTwoBase36Digits + 1)
+		// randomness := f.xactIDRand.Int63n(maxTwoBase36Digits + 1)
 		f.xactIDMutex.Unlock()
 
 		last2chars := "56" // strconv.FormatInt(randomness, 36)
